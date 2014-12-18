@@ -22,4 +22,17 @@ var app = angular.module('todo', []);
               $scope.errors = xrh.responseJSON.errors
             })
           };
+          $scope.deleteTodo = function(id){
+            $http.delete('/todos/' + id, {todo: {id: id}})
+            .success(function(data){
+              for (var i = 0; i < $scope.todos.length; i++) {
+                if ($scope.todos[i].id === data.id){
+                  $scope.todos.splice(i, 1)
+                }
+              };
+            })
+            .error(function(xrh){
+              $scope.errors = xrh.responseJSON.errors
+            })
+          };
         }]);
