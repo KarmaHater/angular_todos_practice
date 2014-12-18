@@ -14,7 +14,7 @@
         <input type="submit">
       </form>
       <ul>
-        <li ng-repeat="todo in todos">{{todo.title}}</li>
+        <li ng-repeat="todo in todos">{{todo.title}} <a href="#" ng-click="deleteTodo(todo.id)">x</a></li>
       </ul>
     </div>
   </div>
