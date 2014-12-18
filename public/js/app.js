@@ -10,6 +10,7 @@ var app = angular.module('todo', []);
           $scope.addTodo = function(){
             $http.post('/todos', {todo: {title: $scope.formText}})
             .success(function(data){
+              console.log(data)
               $scope.todos.push(data)
               $scope.formText = "";
             })
