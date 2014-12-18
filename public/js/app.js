@@ -9,11 +9,14 @@ var app = angular.module('todo', []);
 
           })
           $scope.addTodo = function(){
+            $scope.errors = []
             $http.post('/todos', {todo: {title: $scope.formText}})
             .success(function(data){
               if (data.errors) {
-                console.log(data.errors)
-              }else{
+                for (var i = 0; i < data.errors.length; i++){
+                  $scope.errors.push(data.errors[i])
+                 };
+              } else {
                 $scope.todos.push(data)
               };
               $scope.formText = "";
