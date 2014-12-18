@@ -10,12 +10,15 @@ class TodosController < ApplicationController
     if todo.save
       render json: todo
     else
-      render json: {errors: todo.errors.full_messagese}
+      render json: {errors: todo.errors.full_messages}
     end
   end
 
   def destroy
+    p params
     todo = Todo.find(params[:id])
+    puts "this is your todod"
+    puts todo
     if todo.present?
       todo.destroy
       render json: {id: todo.id}

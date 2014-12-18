@@ -9,12 +9,13 @@
   <div>
     <h1>Todos Mother Fucker</h1>
     <div ng-controller="todoController" class="input">
+      <p ng-repeat="error in errors">{{error}}</p>
       <form ng-submit="addTodo()" >
         <input ng-model="formText" type="text">
         <input type="submit">
       </form>
       <ul>
-        <li ng-repeat="todo in todos">{{todo.title}}</li>
+        <li ng-repeat="todo in todos">{{todo.title}} <a href="#" ng-click="deleteTodo(todo.id)">x</a></li>
       </ul>
     </div>
   </div>
