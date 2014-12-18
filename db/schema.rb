@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20141217231606) do
 
   create_table "todos", force: true do |t|
-    t.text     "title"
+    t.text     "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
