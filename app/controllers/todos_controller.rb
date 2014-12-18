@@ -10,7 +10,7 @@ class TodosController < ApplicationController
     if todo.save
       render json: todo
     else
-      render json: {errors: todo.errors.full_messagese}
+      render json: {errors: todo.errors.full_messages}
     end
   end
 
